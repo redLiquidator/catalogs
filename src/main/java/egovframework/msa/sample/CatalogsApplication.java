@@ -7,7 +7,9 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan("egovframework.*")
 public class CatalogsApplication {
+
 	public static void main(String[] args) {
-		 SpringApplication.run(CatalogsApplication.class);
-		 }
+		SpringApplication.run(CatalogsApplication.class);
+	}
+
 }

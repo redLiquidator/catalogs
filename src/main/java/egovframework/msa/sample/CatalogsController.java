@@ -12,17 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/catalogs")
 public class CatalogsController {
 	private static final Logger log = LoggerFactory.getLogger(CatalogsController.class);
-	@Autowired
-	public CustomerApiService customerApiService;
-
+	private final CustomerApiService customerApiService;
 	public CatalogsController(CustomerApiService customerApiService) {
-		this.customerApiService = customerApiService;
+	this.customerApiService = customerApiService;
 	}
-
-	@GetMapping(path = "/customerinfo/{customerId}")
-	public String getCustomerInfo(@PathVariable String customerId) {
-		String customerInfo = customerApiService.getCustomerDetail(customerId);
-		log.info("response customerInfo : " + customerInfo);
-		return String.format("[Customer id = %s at %s %s ]", customerId, System.currentTimeMillis(), customerInfo);
-	}
+	 @GetMapping(path = "/customerinfo/{customerId}")
+	 public String getCustomerInfo(@PathVariable String customerId) {
+	 String customerInfo = customerApiService.getCustomerDetail(customerId);
+	log.info("response customerInfo : " + customerInfo);
+	 return String.format("[Customer id = %s at %s %s ]", customerId,
+	System.currentTimeMillis(), customerInfo);
+	 }
 }
